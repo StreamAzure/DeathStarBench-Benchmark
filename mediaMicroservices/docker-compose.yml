@@ -55,7 +55,7 @@ services:
     entrypoint: RatingService
 
   rating-redis:
-    image: redis
+    image: redis:7.0.0
     hostname: rating-redis
 #    ports:
 #      - 6382:6379
@@ -136,7 +136,7 @@ services:
     restart: always
 
   user-review-redis:
-    image: redis
+    image: redis:7.0.0
     hostname: user-review-redis
 #    ports:
 #      - 6381:6379
@@ -158,7 +158,7 @@ services:
     restart: always
 
   movie-review-redis:
-    image: redis
+    image: redis:7.0.0
     hostname: movie-review-redis
 #    ports:
 #      - 6380:6379

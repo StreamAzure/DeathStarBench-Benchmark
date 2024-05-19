@@ -33,6 +33,8 @@ pulled from Docker Hub.
 python3 scripts/write_movie_info.py -c <path-to-casts.json> -m <path-to-movies.json> --server_address <address:port> && scripts/register_users.sh && scripts/register_movies.sh
 ```
 
+python3 scripts/write_movie_info.py -c datasets/tmdb/casts.json -m datasets/tmdb/movies.json --server_address http://localhost:8080 && scripts/register_users.sh && scripts/register_movies.sh
+
 ### Running HTTP workload generator
 #### Make
 ```bash
@@ -48,6 +50,8 @@ cd ../mediaMicroservices
 ```bash
 ../wrk2/wrk -D exp -t <num-threads> -c <num-conns> -d <duration> -L -s ./wrk2/scripts/media-microservices/compose-review.lua http://localhost:8080/wrk2-api/review/compose -R <reqs-per-sec>
 ```
+
+../wrk2/wrk -D exp -t 1 -c 1 -d 1 -L -s ./wrk2/scripts/media-microservices/compose-review.lua http://localhost:8080/wrk2-api/review/compose -R 1
 
 #### View Jaeger traces
 View Jaeger traces by accessing `http://localhost:16686`
